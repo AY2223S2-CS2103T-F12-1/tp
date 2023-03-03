@@ -1,6 +1,7 @@
 package seedu.address.testutil;
 import java.util.HashSet;
 import java.util.Set;
+
 import seedu.address.model.person.Address;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Name;
@@ -10,7 +11,11 @@ import seedu.address.model.person.Remark;
 import seedu.address.model.tag.Tag;
 import seedu.address.model.util.SampleDataUtil;
 
-@@ -20,18 +21,21 @@ public class PersonBuilder {
+/**
+ * A utility class to help with building Person objects.
+ */
+public class PersonBuilder {
+    public static final String DEFAULT_NAME = "Alice Pauline";
     public static final String DEFAULT_PHONE = "85355255";
     public static final String DEFAULT_EMAIL = "alice@gmail.com";
     public static final String DEFAULT_ADDRESS = "123, Jurong West Ave 6, #08-111";
@@ -22,7 +27,9 @@ import seedu.address.model.util.SampleDataUtil;
     private Address address;
     private Remark remark;
     private Set<Tag> tags;
-
+    /**
+     * Constructs PersonBuilder Object.
+     */
     public PersonBuilder() {
         name = new Name(DEFAULT_NAME);
         phone = new Phone(DEFAULT_PHONE);
@@ -31,7 +38,6 @@ import seedu.address.model.util.SampleDataUtil;
         remark = new Remark(DEFAULT_REMARK);
         tags = new HashSet<>();
     }
-
     /**
      * Initializes the PersonBuilder with the data of {@code personToCopy}.
      */
@@ -43,7 +49,6 @@ import seedu.address.model.util.SampleDataUtil;
         remark = personToCopy.getRemark();
         tags = new HashSet<>(personToCopy.getTags());
     }
-
     /**
      * Sets the {@code Name} of the {@code Person} that we are building.
      */
@@ -79,7 +84,6 @@ import seedu.address.model.util.SampleDataUtil;
         this.email = new Email(email);
         return this;
     }
-
     /**
      * Sets the {@code Remark} of the {@code Person} that we are building.
      */
@@ -87,9 +91,7 @@ import seedu.address.model.util.SampleDataUtil;
         this.remark = new Remark(remark);
         return this;
     }
-
     public Person build() {
         return new Person(name, phone, email, address, remark, tags);
     }
-
 }
