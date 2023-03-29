@@ -12,7 +12,7 @@ import seedu.address.model.person.Phone;
 import seedu.address.model.person.doctor.Doctor;
 import seedu.address.model.person.doctor.Specialty;
 import seedu.address.model.person.doctor.Yoe;
-import seedu.address.model.person.patient.*;
+import seedu.address.model.person.patient.Patient;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -81,6 +81,14 @@ public class SampleDataUtil {
      */
     public static Set<Patient> getPatientSet(Patient ... patients) {
         return Arrays.stream(patients)
+                .collect(Collectors.toSet());
+    }
+
+    /**
+     * Returns a patient set containing the list of patients given.
+     */
+    public static Set<Doctor> getDoctorSet(Doctor ... doctors) {
+        return Arrays.stream(doctors)
                 .collect(Collectors.toSet());
     }
 
