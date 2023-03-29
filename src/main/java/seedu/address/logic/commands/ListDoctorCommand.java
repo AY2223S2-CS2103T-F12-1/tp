@@ -10,7 +10,7 @@ import seedu.address.model.Model;
  */
 public class ListDoctorCommand extends Command {
 
-    public static final String COMMAND_WORD = "list-doc";
+    public static final String COMMAND_WORD = "lsd";
 
     public static final String MESSAGE_SUCCESS = "Listed all doctors";
 

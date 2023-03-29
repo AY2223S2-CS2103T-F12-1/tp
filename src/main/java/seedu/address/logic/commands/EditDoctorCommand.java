@@ -34,7 +34,7 @@ import seedu.address.model.tag.Tag;
  */
 public class EditDoctorCommand extends Command {
 
-    public static final String COMMAND_WORD = "edit-doc";
+    public static final String COMMAND_WORD = "ed";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Edits the details of the doctor identified "
             + "by the index number used in the displayed doctors list. "

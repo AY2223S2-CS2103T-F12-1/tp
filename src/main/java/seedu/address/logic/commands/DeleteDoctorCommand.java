@@ -14,7 +14,7 @@ import seedu.address.model.person.doctor.Doctor;
  * Deletes doctor from the address book
  */
 public class DeleteDoctorCommand extends Command {
-    public static final String COMMAND_WORD = "del-doc";
+    public static final String COMMAND_WORD = "dd";
     public static final String MESSAGE_USAGE = COMMAND_WORD
             + ": Deletes the doctor identified by the index number used in the displayed doctor list.\n"
             + "Parameters: INDEX (must be a positive integer)\n"

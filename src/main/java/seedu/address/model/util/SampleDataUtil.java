@@ -13,6 +13,11 @@ import seedu.address.model.person.doctor.Doctor;
 import seedu.address.model.person.doctor.Specialty;
 import seedu.address.model.person.doctor.Yoe;
 import seedu.address.model.person.patient.Patient;
+import seedu.address.model.person.patient.Diagnosis;
+import seedu.address.model.person.patient.Height;
+import seedu.address.model.person.patient.Status;
+import seedu.address.model.person.patient.Weight;
+import seedu.address.model.person.patient.Remark;
 import seedu.address.model.tag.Tag;
 
 /**
