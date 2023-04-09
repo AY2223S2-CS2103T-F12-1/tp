@@ -48,6 +48,32 @@ public class FindDoctorCommandParser implements Parser<FindDoctorCommand> {
                 .stream().filter(tag -> !tag.isBlank())
                 .map(tag -> tag.toLowerCase().trim()).collect(Collectors.toSet());
 
+        // Run validation checks on attributes
+
+        if (!name.isEmpty()) {
+            ParserUtil.parseName(argMultimap.getValue(PREFIX_NAME).get());
+        }
+
+        if (!phone.isEmpty()) {
+            ParserUtil.parsePhone(argMultimap.getValue(PREFIX_PHONE).get());
+        }
+
+        if (!email.isEmpty()) {
+            ParserUtil.parseEmail(argMultimap.getValue(PREFIX_EMAIL).get());
+        }
+
+        if (!specialty.isEmpty()) {
+            ParserUtil.parseSpecialty(argMultimap.getValue(PREFIX_SPECIALTY).get());
+        }
+
+        if (!yoe.isEmpty()) {
+            ParserUtil.parseYoe(argMultimap.getValue(PREFIX_YOE).get());
+        }
+
+        if (!tagList.isEmpty()) {
+            ParserUtil.parseTags(argMultimap.getAllValues(PREFIX_TAG));
+        }
+
         if (name.isEmpty() && phone.isEmpty() && email.isEmpty()
                 && specialty.isEmpty() && yoe.isEmpty() && tagList.isEmpty()) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT,

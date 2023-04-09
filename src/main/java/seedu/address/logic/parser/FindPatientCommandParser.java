@@ -1,15 +1,8 @@
 package seedu.address.logic.parser;
 
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_DIAGNOSIS;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_HEIGHT;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_REMARK;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_STATUS;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_WEIGHT;
+import static seedu.address.logic.parser.CliSyntax.*;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_YOE;
 
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -53,7 +46,41 @@ public class FindPatientCommandParser implements Parser<FindPatientCommand> {
         Set<String> tagList = argMultimap.getAllValues(PREFIX_TAG)
                 .stream().filter(tag -> !tag.isBlank())
                 .map(tag -> tag.toLowerCase().trim()).collect(Collectors.toSet());
+        if (!name.isEmpty()) {
+            ParserUtil.parseName(argMultimap.getValue(PREFIX_NAME).get());
+        }
 
+        if (!phone.isEmpty()) {
+            ParserUtil.parsePhone(argMultimap.getValue(PREFIX_PHONE).get());
+        }
+
+        if (!email.isEmpty()) {
+            ParserUtil.parseEmail(argMultimap.getValue(PREFIX_EMAIL).get());
+        }
+
+        if (!height.isEmpty()) {
+            ParserUtil.parseHeight(argMultimap.getValue(PREFIX_HEIGHT).get());
+        }
+
+        if (!weight.isEmpty()) {
+            ParserUtil.parseWeight(argMultimap.getValue(PREFIX_WEIGHT).get());
+        }
+
+        if (!diagnosis.isEmpty()) {
+            ParserUtil.parseDiagnosis(argMultimap.getValue(PREFIX_DIAGNOSIS).get());
+        }
+
+        if (!status.isEmpty()) {
+            ParserUtil.parseStatus(argMultimap.getValue(PREFIX_STATUS).get());
+        }
+
+        if (!remark.isEmpty()) {
+            ParserUtil.parseWeight(argMultimap.getValue(PREFIX_REMARK).get());
+        }
+
+        if (!tagList.isEmpty()) {
+            ParserUtil.parseTags(argMultimap.getAllValues(PREFIX_TAG));
+        }
         if (name.isEmpty() && phone.isEmpty() && email.isEmpty() && height.isEmpty() && weight.isEmpty()
                 && diagnosis.isEmpty() && status.isEmpty() && remark.isEmpty() && tagList.isEmpty()) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT,
