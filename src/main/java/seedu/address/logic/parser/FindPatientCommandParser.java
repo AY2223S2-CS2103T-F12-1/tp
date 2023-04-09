@@ -1,7 +1,15 @@
 package seedu.address.logic.parser;
 
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
-import static seedu.address.logic.parser.CliSyntax.*;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_DIAGNOSIS;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_HEIGHT;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_REMARK;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_STATUS;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_WEIGHT;
 
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -45,6 +53,7 @@ public class FindPatientCommandParser implements Parser<FindPatientCommand> {
         Set<String> tagList = argMultimap.getAllValues(PREFIX_TAG)
                 .stream().filter(tag -> !tag.isBlank())
                 .map(tag -> tag.toLowerCase().trim()).collect(Collectors.toSet());
+
         if (!name.isEmpty()) {
             ParserUtil.parseName(argMultimap.getValue(PREFIX_NAME).get());
         }
@@ -74,7 +83,7 @@ public class FindPatientCommandParser implements Parser<FindPatientCommand> {
         }
 
         if (!remark.isEmpty()) {
-            ParserUtil.parseWeight(argMultimap.getValue(PREFIX_REMARK).get());
+            ParserUtil.parseRemark(argMultimap.getValue(PREFIX_REMARK).get());
         }
 
         if (!tagList.isEmpty()) {
