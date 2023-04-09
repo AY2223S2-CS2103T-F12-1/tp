@@ -10,7 +10,7 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
 public class Height {
 
     public static final String MESSAGE_CONSTRAINTS =
-            "Height should be a positive decimal point number with two decimal places representing the patient's height"
+            "Height should be a 3-digit positive number with two decimal places. The patient's height should be"
                     + " in metres and should not be blank";
 
     /*
